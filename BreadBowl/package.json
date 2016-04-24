@@ -1,0 +1,21 @@
+{
+  "name": "phonegap-template-framework7",
+  "version": "1.0.0",
+  "description": "A basic expense tracking app using cross platform Phonegap.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phonegap/phonegap-template-framework7.git"
+  },
+  "author": "Jesse Dahir-Kanehl",
+  "license": "Apache-2.0.0",
+  "keywords": [
+    "ecosystem:phonegap",
+    "ecosystem:cordova",
+    "cordova:template",
+    "phonegap:template"
+  ],
+  "bugs": {
+    "url": "https://github.com/phonegap/phonegap-template-framework7/issues"
+  },
+  "homepage": "https://github.com/phonegap/phonegap-template-framework7"
+}
