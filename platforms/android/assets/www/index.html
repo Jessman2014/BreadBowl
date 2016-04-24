@@ -18,7 +18,7 @@
     <link href="img/BreadBowl57.png" rel="shortcut icon">
 </head>
 
-<body>
+<body class="theme-green">
     <div class="statusbar-overlay"></div>
 
     <div class="views">
@@ -34,78 +34,88 @@
                 <div data-page="index" class="page">
                     <div class="page-content">
                         <div class="content-block">
-                            <div class="list-block expense-items-list theme-pink"></div>
+                            <div class="list-block expense-items-list"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Popup to add new expense item           -->
-            <div class="popup">
-                <div class="view view-popup navbar-fixed">
-                    <div class="navbar">
-                        <div class="navbar-inner">
-                            <div class="left"></div>
-                            <div class="center sliding">New Expense Item</div>
-                            <div class="right"><a href="#" class="link close-popup">Cancel</a></div>
-                        </div>
-                    </div>
-                    <div class="pages">
-                        <div class="page">
-                            <div class="page-content">
-                                <div class="list-block">
-                                    <ul>
-                                        <li>
-                                            <div class="item-content">
-                                                <div class="item-inner">
-                                                    <div class="item-title label">Expense Item</div>
-                                                    <div class="item-input">
-                                                        <input type="text" name="title">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="item-content">
-                                                <div class="item-inner">
-                                                    <div class="item-title label">Color</div>
-                                                    <div class="item-input"><span data-color="orange" class="color selected"></span><span data-color="green"
-                                                        class="color"></span><span data-color="blue" class="color"></span>
-                                                        <span data-color="yellow" class="color"></span><span data-color="white"
-                                                        class="color"></span><span data-color="pink" class="color"></span>
-                                                        <span
-                                                        data-color="purple" class="color"></span>
-                                                            <span data-color="cyan" class="color"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="content-block"><a href="#" class="button add-expense">Add Expense Item</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Template-->
-            <script id="expense-item-template" type="text/template">
-                <ul>{{#each this}}
-                    <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
-                        <div class="swipeout-content">
-                            <label class="label-checkbox item-content">
-                                <input type="checkbox" {{checked}}>
-                                <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title">{{title}}</div>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
-                    </li>{{/each}}
-                </ul>
-            </script>
         </div>
     </div>
+    <!-- Popup to add new expense item           -->
+    <div class="popup">
+        <div class="view view-popup navbar-fixed">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">New Expense Item</div>
+                    <div class="right"><a href="#" class="link close-popup">Cancel</a></div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="page">
+                    <div class="page-content">
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Item Title</div>
+                                            <div class="item-input">
+                                                <input type="text" name="title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Amount</div>
+                                            <div class="item-input">
+                                                <input type="number" name="amount" placeholder="$9.99">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Color</div>
+                                            <div class="item-input"><span data-color="orange" class="color selected"></span><span data-color="green"
+                                                class="color"></span><span data-color="blue" class="color"></span>
+                                                <span data-color="yellow" class="color"></span><span data-color="black" class="color"></span>
+                                                <span
+                                                data-color="pink" class="color"></span>
+                                                    <span data-color="purple" class="color"></span>
+                                                    <span data-color="cyan" class="color"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block"><a href="#" class="button add-expense">Add Expense Item</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Template-->
+    <script id="expense-item-template" type="text/template">
+        <ul>{{#each this}}
+            <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
+                <div class="swipeout-content">
+                    <label class="label-checkbox item-content">
+                        <input type="checkbox" {{checked}}>
+                        <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{title}}-${{amount}}</div>
+                        </div>
+                    </label>
+                </div>
+                <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
+            </li>{{/each}}
+        </ul>
+    </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>

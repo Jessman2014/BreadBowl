@@ -44,9 +44,14 @@ $$('.popup .add-expense').on('click', function () {
     if (title.length === 0) {
         return;
     }
+    var amount = $$('.popup input[name="amount"]').val().trim();
+    if (amount.length === 0 && !isNaN(amount)) {
+        return;
+    }
     var color = $$('.popup .color.selected').attr('data-color');
     expenseData.push({
         title: title,
+        amount: amount,
         color: color,
         checked: '',
         id: (new Date()).getTime()
