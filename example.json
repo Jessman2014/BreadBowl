@@ -1,0 +1,13 @@
+[
+{"title":"Festival Foods","amount":"69.99","boughtDate":"2016-04-07","category":"Grocery","id":"1"},
+{"title":"Ace Hardware","amount":"30.00","boughtDate":"2016-04-21","category":"Household","id":"2"},
+{"title":"Walgreens","amount":"15.45","boughtDate":"2016-04-18-","category":"Toiletry","id":"3"},
+{"title":"Walmart","amount":"62.48","boughtDate":"2016-04-24","category":"Clothing","id":"4"},
+{"title":"Charter","amount":"15.98","boughtDate":"2016-03-05","category":"Internet","id":"5"},
+{"title":"Piggly Wiggly","amount":"105.48","boughtDate":"2016-03-21","category":"Grocery","id":"6"},
+{"title":"Menards","amount":"62.74","boughtDate":"2016-03-15","category":"Household","id":"7"},
+{"title":"Woodmans","amount":"162.54","boughtDate":"2016-03-16","category":"Grocery","id":"8"},
+{"title":"Festival Foods","amount":"78.45","boughtDate":"2016-04-05","category":"Grocery","id":"9"},
+{"title":"Walmart","amount":"13.88","boughtDate":"2016-04-23","category":"Household","id":"10"},
+{"title":"The Hive","amount":"600","boughtDate":"2016-03-27","category":"Rent","id":"11"}
+]

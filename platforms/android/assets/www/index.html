@@ -2,8 +2,6 @@
 <html manifest="manifest.php" class="with-statusbar-overlay">
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,13 +18,20 @@
 
 <body class="theme-green">
     <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p><a href="#" class="panel-close">Close</a></p>
+            <p><a href="#" class="category-open">Expenses By Categories</a></p>
+        </div>
+    </div>
 
     <div class="views">
         <div class="view view-main navbar-fixed">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <div class="left"></div>
-                    <div class="center sliding">Bread Bowl</div>
+                    <div class="left"><a href="#" class="link icon-only open-left-panel"><i class="icon icon-bars"></i></a></div>
+                    <div class="center">Bread Bowl</div>
                     <div class="right"><a href="#" class="link icon-only open-popup"><i class="icon icon-plus">+</i></a></div>
                 </div>
             </div>
@@ -34,7 +39,8 @@
                 <div data-page="index" class="page">
                     <div class="page-content">
                         <div class="content-block">
-                            <div class="list-block expense-items-list"></div>
+                            <div id="piechart"></div>
+                            <div class="list-block accordion-list expense-items-list"></div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +67,7 @@
                                         <div class="item-inner">
                                             <div class="item-title label">Item Title</div>
                                             <div class="item-input">
-                                                <input type="text" name="title">
+                                                <input type="text" name="title" placeholder="ex) Store name">
                                             </div>
                                         </div>
                                     </div>
@@ -79,14 +85,36 @@
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <div class="item-title label">Color</div>
-                                            <div class="item-input"><span data-color="orange" class="color selected"></span><span data-color="green"
-                                                class="color"></span><span data-color="blue" class="color"></span>
-                                                <span data-color="yellow" class="color"></span><span data-color="black" class="color"></span>
-                                                <span
-                                                data-color="pink" class="color"></span>
-                                                    <span data-color="purple" class="color"></span>
-                                                    <span data-color="cyan" class="color"></span>
+                                            <div class="item-title label">Category</div>
+                                            <select class="category-select">
+                                                <option>Grocery</option>
+                                                <option>Toiletry</option>
+                                                <option>Restaurant/Entertainment</option>
+                                                <option>Household</option>
+                                                <option>Clothing</option>
+                                                <option>Gifts</option>
+                                                <option>Gas</option>
+                                                <option>Car Maintenance</option>
+                                                <option>Rent</option>
+                                                <option>Internet</option>
+                                                <option>Electricity</option>
+                                                <option>Heat</option>
+                                                <option>Health Insurance</option>
+                                                <option>Car Insurance</option>
+                                                <option>Home Insurance</option>
+                                                <option>Phone</option>
+                                                <option>Hobbies</option>
+                                                <option>Donations</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Date</div>
+                                            <div class="item-input">
+                                                <input name="date" type="text" placeholder="Date bought" readonly id="calendar-default">
                                             </div>
                                         </div>
                                     </div>
@@ -102,22 +130,28 @@
     <!-- Template-->
     <script id="expense-item-template" type="text/template">
         <ul>{{#each this}}
-            <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
-                <div class="swipeout-content">
-                    <label class="label-checkbox item-content">
-                        <input type="checkbox" {{checked}}>
-                        <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title">{{title}}-${{amount}}</div>
-                        </div>
-                    </label>
+            <li data-color="green" data-id="{{id}}" class="accordion-item">
+                <a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                        <div class="item-title">{{boughtDate}}: {{title}}</div>
+                    </div>
+                </a>
+                <div class="accordion-item-content">
+                    <div class="content-block">
+                        <p>Title: {{title}}</p>
+                        <p>Amount: ${{amount}}</p>
+                        <p>Category: {{category}}</p>
+                        <p>Date Bought: {{boughtDate}}</p>
+                        <p><a href="#" class="button button-raised button-fill color-red select-item-checkbox">Delete Item</a></p>
+                    </div>
                 </div>
-                <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
             </li>{{/each}}
         </ul>
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/moment.min.js"></script>
+    <script type="text/javascript" src="lib/loader.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
 </body>

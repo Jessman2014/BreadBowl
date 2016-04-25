@@ -9,6 +9,9 @@
 
    See https://github.com/apache/cordova-plugin-statusbar
 */
+.statusbar-overlay {
+    background: #000000;
+}
 .view-main {
   background: url(../img/Background.png) no-repeat center;
   -webkit-background-size: cover;
@@ -24,16 +27,17 @@
   -o-transition-duration: 400ms;
   transition-duration: 400ms;
 }
+/*#piechart {
+    width: 90%;
+    height: 90%;
+}*/
+.select-item-checkbox {
+    width: 50%;
+}
+
 .pages,
 .page {
   background: none;
-}
-html.ios .page {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-html.ios .page-content {
-  margin-bottom: 1px;
 }
 .view-main .navbar:after {
   display: none;
