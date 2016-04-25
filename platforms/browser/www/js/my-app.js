@@ -70,7 +70,7 @@ function drawChart() {
     var options = {
         title: 'Expenses By Category',
         is3D: true,
-        legend: {position: 'none'},
+        legend: {position: 'left'},
         backgroundColor: { fill:'transparent' }
     };
 
@@ -144,9 +144,6 @@ $$('.select-item-checkbox').on('click', function () {
     }
 });
 
-// Update app when manifest updated 
-// http://www.html5rocks.com/en/tutorials/appcache/beginner/
-// Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
     window.applicationCache.addEventListener('updateready', function(e) {
         if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
